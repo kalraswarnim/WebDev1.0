@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPRK | Interactive Display</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="product-body" data-product="interactive-display">
+    <div id="site-header"></div>
+    <script src="../site-header.js"></script>
+
+    <main class="product-page">
+      <a class="back-link" href="../index.html">Back to homepage</a>
+      <p class="section-kicker" id="product-category">Our products</p>
+      <h1 id="product-title">Interactive Display</h1>
+      <p class="product-lede" id="product-lede"></p>
+
+      <section class="product-showcase" aria-label="Product overview">
+        <div class="product-visual" aria-hidden="true">
+          <span></span>
+        </div>
+        <div class="product-copy">
+          <h2 id="product-subtitle"></h2>
+          <p id="product-description"></p>
+        </div>
+      </section>
+
+      <section class="product-grid" aria-label="Product highlights">
+        <article><span>01</span><h3 id="feature-one-title"></h3><p id="feature-one-text"></p></article>
+        <article><span>02</span><h3 id="feature-two-title"></h3><p id="feature-two-text"></p></article>
+        <article><span>03</span><h3 id="feature-three-title"></h3><p id="feature-three-text"></p></article>
+      </section>
+
+      <section class="other-products" aria-labelledby="other-products-title">
+        <p class="section-kicker">Explore more</p>
+        <h2 id="other-products-title">Other products</h2>
+        <div class="other-products-grid" id="other-products-grid"></div>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+    <script src="product.js"></script>
+  </body>
+</html>

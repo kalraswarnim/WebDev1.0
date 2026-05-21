@@ -1,5 +1,5 @@
 const canvas = document.querySelector("#heroCanvas");
-const ctx = canvas.getContext("2d");
+const ctx = canvas?.getContext("2d");
 
 let width = 0;
 let height = 0;
@@ -7,6 +7,10 @@ let nodes = [];
 let animationFrame = 0;
 
 function resizeCanvas() {
+  if (!canvas || !ctx) {
+    return;
+  }
+
   const rect = canvas.getBoundingClientRect();
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
   width = rect.width;
@@ -26,6 +30,10 @@ function resizeCanvas() {
 }
 
 function drawGrid(time) {
+  if (!canvas || !ctx) {
+    return;
+  }
+
   ctx.clearRect(0, 0, width, height);
 
   const gradient = ctx.createLinearGradient(0, 0, width, height);
@@ -66,15 +74,81 @@ function animate(timestamp) {
 }
 
 window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-animate(0);
+if (canvas && ctx) {
+  resizeCanvas();
+  animate(0);
+}
 
-document.querySelector(".ask-bar").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const input = event.currentTarget.querySelector("input");
-  input.value = "";
-  event.currentTarget.classList.add("pulse");
-  window.setTimeout(() => event.currentTarget.classList.remove("pulse"), 280);
+document.querySelector(".ask-bar")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const input = event.currentTarget.querySelector("input");
+    input.value = "";
+    event.currentTarget.classList.add("pulse");
+    window.setTimeout(() => event.currentTarget.classList.remove("pulse"), 280);
+  });
+
+const navItems = Array.from(document.querySelectorAll(".nav-item"));
+let closeTimer = 0;
+
+function closeMenus(exceptItem) {
+  navItems.forEach((item) => {
+    if (item !== exceptItem) {
+      item.classList.remove("is-open");
+      item.querySelector(".nav-toggle")?.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+function openMenu(item) {
+  window.clearTimeout(closeTimer);
+  closeMenus(item);
+  item.classList.add("is-open");
+  item.querySelector(".nav-toggle")?.setAttribute("aria-expanded", "true");
+}
+
+function scheduleClose(item) {
+  window.clearTimeout(closeTimer);
+  closeTimer = window.setTimeout(() => {
+    if (!item.matches(":hover") && !item.contains(document.activeElement)) {
+      item.classList.remove("is-open");
+      item.querySelector(".nav-toggle")?.setAttribute("aria-expanded", "false");
+    }
+  }, 120);
+}
+
+navItems.forEach((item) => {
+  const toggle = item.querySelector(".nav-toggle");
+
+  item.addEventListener("mouseenter", () => openMenu(item));
+  item.addEventListener("mouseleave", () => scheduleClose(item));
+  item.addEventListener("focusin", () => openMenu(item));
+  item.addEventListener("focusout", () => scheduleClose(item));
+
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    if (item.classList.contains("is-open")) {
+      item.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      return;
+    }
+
+    openMenu(item);
+  });
 });
 
-window.addEventListener("beforeunload", () => cancelAnimationFrame(animationFrame));
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".main-nav")) {
+    closeMenus();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMenus();
+  }
+});
+
+if (canvas && ctx) {
+  window.addEventListener("beforeunload", () => cancelAnimationFrame(animationFrame));
+}
