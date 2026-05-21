@@ -13,28 +13,19 @@ host.outerHTML = `
         <div class="mega-menu" aria-label="What we do menu">
           <div class="mega-column mega-wide">
             <p class="menu-heading">Our products</p>
-            <a href="professional-displays.html"><span class="marker" aria-hidden="true"></span>Professional Displays</a>
-            <a href="outdoor-video-walls.html"><span class="marker" aria-hidden="true"></span>Outdoor Video Walls</a>
-            <a href="indoor-video-walls.html"><span class="marker" aria-hidden="true"></span>Indoor Video Walls</a>
-            <a href="interactive-display.html"><span class="marker" aria-hidden="true"></span>Interactive Display</a>
+            <a href="professional-displays.html"><span class="menu-arrow">›</span>Professional Displays</a>
+            <a href="outdoor-video-walls.html"><span class="menu-arrow">›</span>Outdoor Video Walls</a>
+            <a href="indoor-video-walls.html"><span class="menu-arrow">›</span>Indoor Video Walls</a>
+            <a href="interactive-display.html"><span class="menu-arrow">›</span>Interactive Display</a>
           </div>
 
           <div class="mega-column mega-wide">
             <p class="menu-heading">Our services</p>
-            <a href="detail.html?slug=video-wall-solution"><span class="marker" aria-hidden="true"></span>Video Wall Solution</a>
-            <a href="detail.html?slug=video-conferencing"><span class="marker" aria-hidden="true"></span>Video Conferencing</a>
-            <a href="detail.html?slug=digital-signage-display"><span class="marker" aria-hidden="true"></span>Digital Signage Display</a>
-            <a href="detail.html?slug=large-format-displays"><span class="marker" aria-hidden="true"></span>Large Format Displays</a>
-            <a href="detail.html?slug=auditorium-av-solution"><span class="marker" aria-hidden="true"></span>Auditorium AV Solution</a>
-          </div>
-
-          <div class="mega-column side-offerings">
-            <p class="menu-heading">Useful links</p>
-            <a href="../index.html">Home</a>
-            <a href="detail.html?slug=company">About us</a>
-            <a href="detail.html?slug=careers">Careers</a>
-            <a href="detail.html?slug=contact">Contact</a>
-            <a href="detail.html?slug=catalog">Download Catalog</a>
+            <a href="detail.html?slug=video-wall-solution"><span class="menu-arrow">›</span>Video Wall Solution</a>
+            <a href="detail.html?slug=video-conferencing"><span class="menu-arrow">›</span>Video Conferencing</a>
+            <a href="detail.html?slug=digital-signage-display"><span class="menu-arrow">›</span>Digital Signage Display</a>
+            <a href="detail.html?slug=large-format-displays"><span class="menu-arrow">›</span>Large Format Displays</a>
+            <a href="detail.html?slug=auditorium-av-solution"><span class="menu-arrow">›</span>Auditorium AV Solution</a>
           </div>
         </div>
       </div>
@@ -88,11 +79,11 @@ host.outerHTML = `
         <span aria-hidden="true"></span>
         Search
       </button>
-      <div class="group-mark" aria-label="A Crestline Group company">
-        <span class="orbit" aria-hidden="true"></span>
-        <span>A Crestline<br />Group Company</span>
-      </div>
-      <a class="contact-button" href="detail.html?slug=contact">Contact</a>
+      <div class="group-mark" aria-label="A GPRK Technologies Pvt. Ltd.">
+          <span class="orbit" aria-hidden="true"></span>
+          <span>GPRK Technologies<br />Pvt. Ltd.</span>
+        </div>
+      <a class="contact-button" href="contact.html">Contact</a>
     </div>
   </header>
 `;
