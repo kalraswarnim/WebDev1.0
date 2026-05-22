@@ -2347,7 +2347,6 @@ input {
   .about-menu a:hover {
     color: #bfa181;
   }
-
   /* MOBILE CLOSE */
 
   .mobile-close {
@@ -2378,6 +2377,9 @@ input {
     width: 54px;
   }
 
+  .mobile-close {
+    display: flex;
+  }
     /* MOBILE CHEVRON */
 
   .nav-toggle .chevron {
@@ -2727,4 +2729,8 @@ img {
       rgba(23,133,130,0.24),
       transparent 42%
     );
+}
+
+.mobile-close {
+  display: none;
 }
