@@ -63,7 +63,7 @@ host.outerHTML = `
   Company
 </a>
           <a href="detail.html?slug=partners"><span class="menu-arrow">›</span>Partners</a>
-          <a href=/oem"><span class="menu-arrow">›</span>OEM Solutions</a>
+          <a href="/oem"><span class="menu-arrow">›</span>OEM Solutions</a>
           <a href="detail.html?slug=investors"><span class="menu-arrow">›</span>Investors</a>
           <a href="detail.html?slug=insights"><span class="menu-arrow">›</span>Insights</a>
           <a href="detail.html?slug=brand"><span class="menu-arrow">›</span>Brand</a>
