@@ -2104,17 +2104,40 @@ height: clamp(520px, 56vw, 640px);
 
   .mobile-menu-toggle {
     display: none;
+
     align-items: center;
+
     justify-content: center;
+
     background: transparent;
+
     border: 0;
+
     color: white;
+
     cursor: pointer;
+
     font-size: 42px;
+
+    line-height: 1;
+
     height: 54px;
+
     width: 54px;
+
     position: relative;
-    z-index: 3000;
+
+    z-index: 4000;
+
+    justify-self: end;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .nav-wrapper.active .main-nav {
+    display: flex;
   }
 
   .hero h1 {
@@ -2143,12 +2166,18 @@ height: clamp(520px, 56vw, 640px);
   line-height: 1;
   }
   .topbar {
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
     align-items: center;
-    justify-content: space-between;
-    min-height: 78px;
+
+    min-height: 84px;
+
     padding: 14px 20px;
+
     position: relative;
+
     z-index: 2000;
   }
 
