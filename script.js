@@ -152,3 +152,13 @@ document.addEventListener("keydown", (event) => {
 if (canvas && ctx) {
   window.addEventListener("beforeunload", () => cancelAnimationFrame(animationFrame));
 }
+
+const mobileMenuButton =
+  document.querySelector(".mobile-menu-toggle");
+
+const navWrapper =
+  document.querySelector(".nav-wrapper");
+
+mobileMenuButton?.addEventListener("click", () => {
+  navWrapper.classList.toggle("active");
+});
