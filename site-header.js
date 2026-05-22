@@ -1,8 +1,15 @@
+const isHomePage =
+  window.location.pathname.includes("index.html") ||
+  window.location.pathname === "/";
+
+const base = isHomePage ? "pages/" : "";
+const home = isHomePage ? "index.html" : "../index.html";
+
 const host = document.currentScript.previousElementSibling;
 
 host.outerHTML = `
   <header class="topbar" aria-label="Main navigation">
-    <a class="brand" href="../index.html" aria-label="GPRK home">GPRK</a>
+    <a class="brand" href="${home}" aria-label="GPRK home">GPRK</a>
 
     <nav class="main-nav" aria-label="Primary">
       <div class="nav-item">
@@ -36,12 +43,12 @@ host.outerHTML = `
           <span class="chevron" aria-hidden="true"></span>
         </button>
         <div class="dropdown-menu compact-menu" aria-label="Industries menu">
-          <a href="detail.html?slug=corporate">Corporate</a>
-          <a href="detail.html?slug=education">Education</a>
-          <a href="detail.html?slug=retail">Retail</a>
-          <a href="detail.html?slug=healthcare">Healthcare</a>
-          <a href="detail.html?slug=hospitality">Hospitality</a>
-          <a href="detail.html?slug=public-sector">Public Sector</a>
+          <a href="detail.html?slug=corporate"><span class="menu-arrow">›</span>Corporate</a>
+          <a href="detail.html?slug=education"><span class="menu-arrow">›</span>Education</a>
+          <a href="detail.html?slug=retail"><span class="menu-arrow">›</span>Retail</a>
+          <a href="detail.html?slug=healthcare"><span class="menu-arrow">›</span>Healthcare</a>
+          <a href="detail.html?slug=hospitality"><span class="menu-arrow">›</span>Hospitality</a>
+          <a href="detail.html?slug=public-sector"><span class="menu-arrow">›</span>Public Sector</a>
         </div>
       </div>
 
@@ -51,26 +58,24 @@ host.outerHTML = `
           <span class="chevron" aria-hidden="true"></span>
         </button>
         <div class="dropdown-menu about-menu" aria-label="About menu">
-          <a href="detail.html?slug=company">Company</a>
-          <a href="detail.html?slug=partners">Partners</a>
-          <a href="detail.html?slug=investors">Investors</a>
-          <a href="detail.html?slug=insights">Insights</a>
-          <a href="detail.html?slug=brand">Brand</a>
-          <a href="detail.html?slug=esg">Environment, Sustainability and Governance</a>
-          <a href="detail.html?slug=newsroom">Newsroom</a>
-          <a href="detail.html?slug=diversity-inclusion">Diversity, Equity and Inclusion</a>
+          <a href="detail.html?slug=company">
+  <span class="menu-arrow">›</span>
+  Company
+</a>
+          <a href="detail.html?slug=partners"><span class="menu-arrow">›</span>Partners</a>
+          <a href="detail.html?slug=investors"><span class="menu-arrow">›</span>Investors</a>
+          <a href="detail.html?slug=insights"><span class="menu-arrow">›</span>Insights</a>
+          <a href="detail.html?slug=brand"><span class="menu-arrow">›</span>Brand</a>
+          <a href="detail.html?slug=esg"><span class="menu-arrow">›</span>Environment, Sustainability and Governance</a>
+          <a href="detail.html?slug=newsroom"><span class="menu-arrow">›</span>Newsroom</a>
+          <a href="detail.html?slug=diversity-inclusion"><span class="menu-arrow">›</span>Diversity, Equity and Inclusion</a>
         </div>
       </div>
 
       <div class="nav-item">
-        <button class="nav-toggle" type="button" aria-expanded="false">
+        <a class="nav-link" href="detail.html?slug=careers">
           Careers
-          <span class="chevron" aria-hidden="true"></span>
-        </button>
-        <div class="dropdown-menu compact-menu" aria-label="Careers menu">
-          <a href="detail.html?slug=careers">Open Roles</a>
-          <a href="detail.html?slug=life-at-gprk">Life at GPRK</a>
-        </div>
+        </a>
       </div>
     </nav>
 
