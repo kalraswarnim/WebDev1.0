@@ -6,6 +6,7 @@ host.outerHTML = `
     <button class="mobile-menu-toggle" aria-label="Open menu">
     ☰
     </button>
+    <div class="mobile-overlay"></div>
     <div class="nav-wrapper">
       <nav class="main-nav" aria-label="Primary">
         <div class="nav-item">

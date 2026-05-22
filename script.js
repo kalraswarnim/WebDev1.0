@@ -79,14 +79,6 @@ if (canvas && ctx) {
   animate(0);
 }
 
-document.querySelector(".ask-bar")?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const input = event.currentTarget.querySelector("input");
-    input.value = "";
-    event.currentTarget.classList.add("pulse");
-    window.setTimeout(() => event.currentTarget.classList.remove("pulse"), 280);
-  });
-
 const navItems = Array.from(document.querySelectorAll(".nav-item"));
 let closeTimer = 0;
 
@@ -124,17 +116,19 @@ navItems.forEach((item) => {
   item.addEventListener("focusin", () => openMenu(item));
   item.addEventListener("focusout", () => scheduleClose(item));
 
-  toggle.addEventListener("click", (event) => {
-    event.stopPropagation();
+  if (toggle) {
 
-    if (item.classList.contains("is-open")) {
-      item.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      return;
-    }
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (item.classList.contains("is-open")) {
+        item.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        return;
+      }
+      openMenu(item);
+    });
 
-    openMenu(item);
-  });
+  }
 });
 
 document.addEventListener("click", (event) => {
@@ -152,13 +146,31 @@ document.addEventListener("keydown", (event) => {
 if (canvas && ctx) {
   window.addEventListener("beforeunload", () => cancelAnimationFrame(animationFrame));
 }
+document.addEventListener("DOMContentLoaded", () => {
 
-const mobileMenuButton =
-  document.querySelector(".mobile-menu-toggle");
+  const mobileMenuButton =
+    document.querySelector(".mobile-menu-toggle");
 
-const navWrapper =
-  document.querySelector(".nav-wrapper");
+  const navWrapper =
+    document.querySelector(".nav-wrapper");
 
-mobileMenuButton?.addEventListener("click", () => {
-  navWrapper.classList.toggle("active");
+  const mobileOverlay =
+    document.querySelector(".mobile-overlay");
+
+  mobileMenuButton?.addEventListener("click", () => {
+
+    navWrapper.classList.toggle("active");
+
+    mobileOverlay.classList.toggle("active");
+
+  });
+
+  mobileOverlay?.addEventListener("click", () => {
+
+    navWrapper.classList.remove("active");
+
+    mobileOverlay.classList.remove("active");
+
+  });
+
 });
