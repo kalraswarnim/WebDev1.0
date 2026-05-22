@@ -8,6 +8,9 @@ host.outerHTML = `
     </button>
     <div class="mobile-overlay"></div>
     <div class="nav-wrapper">
+    <button class="mobile-close" aria-label="Close menu">
+      ✕
+    </button>
       <nav class="main-nav" aria-label="Primary">
         <div class="nav-item">
           <button class="nav-toggle" type="button" aria-expanded="false">
