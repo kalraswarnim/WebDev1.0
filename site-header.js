@@ -63,7 +63,7 @@ host.outerHTML = `
   Company
 </a>
           <a href="detail.html?slug=partners"><span class="menu-arrow">›</span>Partners</a>
-          <a href="oem.html"><span class="menu-arrow">›</span>OEM Solutions</a>
+          <a href=/oem"><span class="menu-arrow">›</span>OEM Solutions</a>
           <a href="detail.html?slug=investors"><span class="menu-arrow">›</span>Investors</a>
           <a href="detail.html?slug=insights"><span class="menu-arrow">›</span>Insights</a>
           <a href="detail.html?slug=brand"><span class="menu-arrow">›</span>Brand</a>
@@ -89,7 +89,7 @@ host.outerHTML = `
           <span class="orbit" aria-hidden="true"></span>
           <span>GPRK Technologies<br />Pvt. Ltd.</span>
         </div>
-      <a class="contact-button" href="contact.html">Contact</a>
+      <a class="contact-button" href="/contact">Contact</a>
     </div>
   </header>
 `;
