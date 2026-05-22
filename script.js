@@ -119,13 +119,37 @@ navItems.forEach((item) => {
   if (toggle) {
 
     toggle.addEventListener("click", (event) => {
+
+      event.preventDefault();
+
       event.stopPropagation();
-      if (item.classList.contains("is-open")) {
-        item.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
+
+      if (window.innerWidth <= 980) {
+
+        navItems.forEach((otherItem) => {
+
+          if (otherItem !== item) {
+            otherItem.classList.remove("mobile-open");
+          }
+
+        });
+
+        item.classList.toggle("mobile-open");
+
         return;
       }
+
+      if (item.classList.contains("is-open")) {
+
+        item.classList.remove("is-open");
+
+        toggle.setAttribute("aria-expanded", "false");
+
+        return;
+      }
+
       openMenu(item);
+
     });
 
   }
@@ -165,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
     navWrapper.classList.toggle("active");
     document.body.classList.toggle("menu-open");
     mobileOverlay.classList.toggle("active");
-    document.body.classList.toggle("menu-open");
 
   });
 
@@ -185,49 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileOverlay.classList.remove("active");
 
     document.body.classList.remove("menu-open");
-
-  });
-
-});
-
-/* MOBILE ACCORDION */
-
-document.addEventListener("DOMContentLoaded", () => {
-  
-  const mobileNavItems =
-    document.querySelectorAll(".nav-item");
-
-  mobileNavItems.forEach((item) => {
-
-    const toggle =
-      item.querySelector(".nav-toggle");
-
-    const submenu =
-      item.querySelector(
-        ".mega-menu, .dropdown-menu, .about-menu"
-      );
-
-    if (window.innerWidth <= 980 && toggle && submenu) {
-
-      toggle.addEventListener("click", (event) => {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        mobileNavItems.forEach((otherItem) => {
-
-          if (otherItem !== item) {
-            otherItem.classList.remove("mobile-open");
-          }
-
-        });
-
-        item.classList.toggle("mobile-open");
-
-      });
-
-    }
 
   });
 

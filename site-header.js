@@ -1,12 +1,12 @@
 const host = document.currentScript.previousElementSibling;
 
 host.outerHTML = `
+  <div class="mobile-overlay"></div>
   <header class="topbar" aria-label="Main navigation">
     <a class="brand" href="/" aria-label="GPRK home">GPRK</a>
     <button class="mobile-menu-toggle" aria-label="Open menu">
     ☰
     </button>
-    <div class="mobile-overlay"></div>
     <div class="nav-wrapper">
     <button class="mobile-close" aria-label="Close menu">
       ✕
