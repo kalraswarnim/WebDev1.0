@@ -2103,7 +2103,7 @@ height: clamp(520px, 56vw, 640px);
 @media (max-width: 980px) {
 
   .mobile-menu-toggle {
-    display: none;
+    display: flex !important;
 
     align-items: center;
 
@@ -2125,19 +2125,20 @@ height: clamp(520px, 56vw, 640px);
 
     width: 54px;
 
+    flex-shrink: 0;
+
     position: relative;
 
     z-index: 4000;
-
-    justify-self: end;
   }
-
-  .main-nav {
+  .nav-wrapper {
     display: none;
   }
 
-  .nav-wrapper.active .main-nav {
-    display: flex;
+  .nav-wrapper.active {
+    display: block;
+
+    right: 0;
   }
 
   .hero h1 {
@@ -2156,6 +2157,7 @@ height: clamp(520px, 56vw, 640px);
   gap: 14px;
   margin-top: 30px;
   }
+
   .primary-cta,
   .secondary-cta {
   width: 100%;
@@ -2166,19 +2168,19 @@ height: clamp(520px, 56vw, 640px);
   line-height: 1;
   }
   .topbar {
-    display: grid;
-
-    grid-template-columns: 1fr auto;
+    display: flex;
 
     align-items: center;
 
-    min-height: 84px;
+    justify-content: space-between;
+
+    min-height: 82px;
 
     padding: 14px 20px;
 
     position: relative;
 
-    z-index: 2000;
+    z-index: 3000;
   }
 
   .nav-wrapper {
@@ -2234,7 +2236,13 @@ height: clamp(520px, 56vw, 640px);
   }
 
   .top-actions {
-    display: none;
+    display: none !important;
+
+    width: 0 !important;
+
+    overflow: hidden;
+
+    visibility: hidden;
   }
 
 }
